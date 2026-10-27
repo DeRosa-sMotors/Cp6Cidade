@@ -1,0 +1,31 @@
+:root {
+  --bg-dark: #0d0d0d;
+  --bg-card: #161616;
+  --text-color: #ffffff;
+  --gold: #d4af37;
+}
+
+.logo:hover {
+  letter-spacing: 6px;
+  animation: brilhar 0.5s forwards;
+}
+
+.titulo {
+  background-image: linear-gradient(to right, var(--gold), #ffffff, var(--gold));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.titulo:hover {
+  animation: brilhar 0.5s forwards;
+}
+
+@keyframes brilhar {
+  to {
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--gold), 0 0 20px #ffffff;
+  }
+}
