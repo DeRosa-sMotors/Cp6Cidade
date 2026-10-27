@@ -69,13 +69,6 @@ const dataDeHoje = () => {
   return data.getFullYear() + "-" + mes + "-" + dia
 }
 
-const formatarData = (dataISO, dias) => {
-  const data = new Date(dataISO + "T00:00:00")
-  data.setDate(data.getDate() + dias)
-
-  return data.toLocaleDateString("pt-BR")
-}
-
 const Carros = () => {
   const [carros, setCarros] = useState(frota)
   const [marca, setMarca] = useState("Todas")
@@ -115,11 +108,6 @@ const Carros = () => {
 
   const total = subtotal + taxaSeguro
 
-  const diasDaLocacao = selecionados.reduce(
-    (maior, carro) => Math.max(maior, carro.dias),
-    0
-  )
-
   const confirmarReserva = () => {
     if (!dataRetirada) {
       setStatus("Escolha a data de retirada para confirmar a reserva.")
@@ -127,11 +115,7 @@ const Carros = () => {
     }
 
     setStatus(
-      "Reserva confirmada de " +
-        formatarData(dataRetirada, 0) +
-        " a " +
-        formatarData(dataRetirada, diasDaLocacao) +
-        ". Valor total de R$ " +
+      "Reserva confirmada! Valor total de R$ " +
         total.toFixed(2).replace(".", ",")
     )
   }
